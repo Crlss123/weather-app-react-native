@@ -23,7 +23,7 @@ const Card = ({ forecast }) => {
 };
 
 export default function App() {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Hermosillo');
   const [data, setData] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [temp, setTemp] = useState(null);
@@ -78,7 +78,9 @@ export default function App() {
   };
 
   return isLoading ? (
-    <ActivityIndicator/>
+    <View style={styles.loadingContainer}>
+    <ActivityIndicator size="large" color="#007aff" />
+  </View>
   ) : (
     <View style={styles.container}>
       <TextInput
@@ -109,6 +111,12 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#f7f8fa',
+},
   container: {
     flex: 1,
     backgroundColor: '#f7f8fa',
