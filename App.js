@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, FlatList, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, FlatList, Image, ActivityIndicator } from 'react-native';
 import { useState, useEffect } from 'react';
 
 const API_KEY = '334c97abd0130f13b6522e1f5c028285';
@@ -77,7 +77,9 @@ export default function App() {
     }
   };
 
-  return (
+  return isLoading ? (
+    <ActivityIndicator/>
+  ) : (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
